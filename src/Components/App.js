@@ -8,6 +8,8 @@ import MovieList from './MovieList'
 
 class App extends React.Component{
     
+
+
     state={
         movies : [
             {
@@ -31,9 +33,21 @@ class App extends React.Component{
                 "overview" : "Eight years after the Joker's reign of chaos, Batman is coerced out of exile with the assistance of the mysterious Selina Kyle in order to defend Gotham City from the vicious guerrilla terrorist Bane.", 
                 "imageUrl" : "https://m.media-amazon.com/images/I/81anyi8IkDS._RI_.jpg"
             }
-        ]
+        ],
+     
     }
 
+    
+    
+    deleteMovie = (movie) => {
+       
+           const newMovieList = this.state.movies.filter(
+            m => m.id !== movie.id
+            );
+           this.setState({
+            movies: newMovieList
+        })
+            }
 
     render () {
 
@@ -48,7 +62,11 @@ class App extends React.Component{
             </div>
 
             <MovieList
-             movies = {this.state.movies}/>
+             movies = {this.state.movies}  
+             deleteMovieProps = {this.deleteMovie}
+             
+             />
+
           </div>
 
         
