@@ -11,7 +11,7 @@ const MovieList  = (props) =>{
                 
                 <div className='col-lg-4'>
                     <div className='card mb-4 shadow-sm'>
-                        <img src ={movie.imageUrl} className="card-img-top" alt="Sample Movie"/>
+                        <img src ={movie.imageURL} className="card-img-top" alt="Sample Movie"/>
 
                       <div className='card-body'>
                         <h5 className='card-title'>{movie.name}</h5>

@@ -1,0 +1,25 @@
+{
+  "movies": [
+    {
+      "name": "The Lord of the Rings: The Fellowship of the Ring",
+      "rating": "8.8",
+      "overview": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+      "imageURL": "https://images.moviesanywhere.com/198e228b071c60f5ad57e5f62fe60029/ff22cad6-2218-414d-b853-3f95d76905c7.jpg",
+      "id": 1
+    },
+    {
+      "name": "Matrix",
+      "rating": "8.7",
+      "imageURL": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
+      "overview": "Six months after the events depicted in The Matrix, Neo has proved to be a good omen for the free humans, as more and more humans are being freed from the matrix and brought to Zion, the one and only stronghold of the Resistance. Neo himself has discovered his superpowers including super speed, ability to see the codes of the things inside the matrix and a certain degree of pre-cognition.",
+      "id": 2
+    },
+    {
+      "name": "The Dark Knight Rises",
+      "rating": "8.4",
+      "imageURL": "https://m.media-amazon.com/images/I/81anyi8IkDS._RI_.jpg",
+      "overview": "Eight years after the Joker's reign of chaos, Batman is coerced out of exile with the assistance of the mysterious Selina Kyle in order to defend Gotham City from the vicious guerrilla terrorist Bane.",
+      "id": 3
+    }
+  ]
+}
