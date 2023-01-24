@@ -1,54 +1,53 @@
 import React from 'react'
-
-
 import Search from './Search'
 import MovieList from './MovieList'
 import axios from 'axios';
+import AddMovie from './AddMovie';
+import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+
+class App extends React.Component {
 
 
-class App extends React.Component{
-    
 
+    state = {
+        movies: [
 
-    state={
-        movies : [
-            
         ],
 
         searchQuery: ""
-     
+
     }
 
-   
+
 
     async componentDidMount() {
-        const response = await axios.get("http://localhost:3005/movies");
+        const response = await axios.get("http://localhost:3002/movies");
         this.setState({ movies: response.data })
     }
 
-    
+
 
 
     deleteMovie = async (movie) => {
-             axios.delete( `http://localhost:3005/movies/${movie.id} `)
-           const newMovieList = this.state.movies.filter(
+        axios.delete(`http://localhost:3002/movies/${movie.id} `)
+        const newMovieList = this.state.movies.filter(
             m => m.id !== movie.id
-            );
+        );
 
-           this.setState(state => ({
+        this.setState(state => ({
             movies: newMovieList
         }))
-            }
+    }
 
 
-            searchMovie = (event) => {
-       
-                this.setState({searchQuery: event.target.value })
-            }
+    searchMovie = (event) => {
+
+        this.setState({ searchQuery: event.target.value })
+    }
 
 
-    render () {
-  
+    render() {
+
         let filteredMovies = this.state.movies.filter(
             (movie) => {
                 return movie.name.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1
@@ -56,26 +55,51 @@ class App extends React.Component{
         )
 
 
-      return  (
+        return (
 
-      
-           <div className='container'>
-            <div className = 'row'>
-                <div className= 'col-lg-12'> 
-                <Search SearchMovieProp ={this.searchMovie}/>
-                </div>
-            </div>
+            <BrowserRouter>
 
-            <MovieList
-                movies={filteredMovies}
-                deleteMovieProps = {this.deleteMovie}
-             
-             />
+                <Routes>
 
-          </div>
+                    <Route path='/home' element={
 
-        
-       )
+                        <div className='container'>
+                            <div className='row'>
+                                <div className='col-lg-12'>
+                                    <Search SearchMovieProp={this.searchMovie} />
+                                </div>
+                            </div>
+
+                            <MovieList
+                                movies={filteredMovies}
+                                deleteMovieProps={this.deleteMovie}
+
+                            />
+
+                        </div>
+                    } />
+
+
+                    <Route path='/add' element = { <AddMovie></AddMovie>}/>
+                </Routes>
+
+
+
+
+
+
+
+
+            </BrowserRouter>
+
+
+
+
+
+
+
+
+        )
     }
 }
 

@@ -14,9 +14,9 @@ class Search extends React.Component{
 
         return(  
 
-         <form onSubmit={this.handleFormSubmit}>
-            <div className='form-row mb-5'> 
-                <div className='col-12'>
+         <form onSubmit={this.handleFormSubmit} style={{marginTop : '50px'}}> 
+            <div className='row'> 
+                <div className='col-sm-10'>
                      <input type = "text" 
                      className = "form-control"
                       placeholder='Search a movie'
@@ -24,6 +24,17 @@ class Search extends React.Component{
                     
                        </input>
                 </div>
+
+                <div className='col-sm-2'>
+              <button type='button' className='btn btn-md btn-danger' style={{float:'right'}}>
+                Add Movie
+
+              </button>
+                </div>
+              
+
+
+               
             </div>
            
            
