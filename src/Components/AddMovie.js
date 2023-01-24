@@ -1,21 +1,31 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
-const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const newMovie = e.Serialize(e.target, { hash: true });
-    this.props.onAddMovie(newMovie);
-  };
+import serialize from 'form-serialize'
+
+
+
+
 
 
 const AddMovie = (props) => {
  
-    const navigate = useNavigate(); 
+   const handleformSubmit = (e) =>
+   {
+   
+       e.preventDefault()
+       const newMovie = serialize(e.target
+           ,{hash: true});
 
+           props.send(newMovie);
+   };
+
+
+    
     return (
     
-
+        
         <div className="container">
-        <form className="mt-5" onSubmit={handleFormSubmit}>
+        <form className="mt-5" onSubmit={handleformSubmit} >
             <input className="form-control" id="disabledInput" type="text" placeholder="Fill The Form To Add A Movie.." disabled />
             <div className="form-row">
                 <div className="form-group col-md-10">
@@ -49,7 +59,7 @@ const AddMovie = (props) => {
                         name="overview" rows="5"></textarea>
                 </div>
             </div>
-            <input type="submit" onClick={() => navigate("/")} className="btn btn-danger btn-block" value="Add Movie" />
+            <input type="submit"  className="btn btn-danger btn-block" value="Add Movie" />
         </form>
     </div>
     )
