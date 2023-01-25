@@ -3,6 +3,7 @@ import Search from './Search'
 import MovieList from './MovieList'
 import axios from 'axios';
 import AddMovie from './AddMovie';
+import EditMovie from './EditMovie';
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
 
 class App extends React.Component {
@@ -55,13 +56,17 @@ class App extends React.Component {
 
    
 
-    render() {
+    render() 
+    {
 
         let filteredMovies = this.state.movies.filter(
             (movie) => {
                 return movie.name.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1
             }
-        )
+        ).sort((a, b) => {
+            return a.id < b.id ? 1 : a.id > b.id ? -1 : 0;
+        });
+
 
 
         return (
@@ -70,7 +75,7 @@ class App extends React.Component {
 
                 <Routes>
 
-                    <Route path='/home' element={
+                    <Route path='/' element={
 
                         <div className='container'>
                             <div className='row'>
@@ -84,19 +89,16 @@ class App extends React.Component {
                                 deleteMovieProps={this.deleteMovie}
 
                             />
+               
 
                         </div>
                     } />
 
 
-                    <Route path='/add' element = { 
-                    <AddMovie send = {(movie) => {this.addMovie(movie)}} />
+                    <Route path='/add' element = { <AddMovie send = {(movie) => {this.addMovie(movie)}} />}/>
+                    <Route  path='/edit/:id' element={<EditMovie></EditMovie>} > </Route>
+                  
 
-                    
-                 
-                    
-                    
-                    }/>
                 </Routes>
 
 

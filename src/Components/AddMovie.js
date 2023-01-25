@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
 import serialize from 'form-serialize'
 
@@ -18,6 +18,11 @@ const AddMovie = (props) => {
 
            props.send(newMovie);
    };
+
+   useEffect(function(){
+
+    console.log("bbbbbbbbbbb")
+   })
 
 
     

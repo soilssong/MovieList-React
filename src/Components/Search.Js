@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 
 class Search extends React.Component{
@@ -25,11 +26,14 @@ class Search extends React.Component{
                        </input>
                 </div>
 
+                
                 <div className='col-sm-2'>
-              <button type='button' className='btn btn-md btn-danger' style={{float:'right'}}>
-                Add Movie
-
-              </button>
+                <Link
+                                to="/add"
+                                type="button" 
+                                className="btn btn-md btn-danger"
+                                style={{float:'right'}}>Add Movie
+                        </Link>
                 </div>
               
 
