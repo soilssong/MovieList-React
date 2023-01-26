@@ -4,12 +4,9 @@ import MovieList from './MovieList'
 import axios from 'axios';
 import AddMovie from './AddMovie';
 import EditMovie from './EditMovie';
-import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 class App extends React.Component {
-
-
-
     state = {
         movies: [
 
@@ -22,6 +19,10 @@ class App extends React.Component {
 
 
     async componentDidMount() {
+       this.getMovies();
+    }
+
+    async getMovies() {
         const response = await axios.get("http://localhost:3002/movies");
         this.setState({ movies: response.data })
     }
@@ -34,8 +35,16 @@ class App extends React.Component {
         this.setState( state => ({
             movies : this.state.movies.concat([movie])
         }))
+        this.getMovies();
     }
 
+
+    editMovie = async(id ,updatedMovie) =>{
+
+        await axios.put(`http://localhost:3002/movies/${id}`,updatedMovie)
+        this.getMovies();
+   
+    }
 
     deleteMovie = async (movie) => {
         axios.delete(`http://localhost:3002/movies/${movie.id} `)
@@ -53,6 +62,8 @@ class App extends React.Component {
 
         this.setState({ searchQuery: event.target.value })
     }
+
+    editM
 
    
 
@@ -96,27 +107,13 @@ class App extends React.Component {
 
 
                     <Route path='/add' element = { <AddMovie send = {(movie) => {this.addMovie(movie)}} />}/>
-                    <Route  path='/edit/:id' element={<EditMovie></EditMovie>} > </Route>
+                    <Route  path='/edit/:id' element={<EditMovie onEditMovie ={(id,movie) => {
+                        this.editMovie(id,movie)
+                    }}></EditMovie>} > </Route>
                   
 
                 </Routes>
-
-
-
-
-
-
-
-
             </BrowserRouter>
-
-
-
-
-
-
-
-
         )
     }
 }

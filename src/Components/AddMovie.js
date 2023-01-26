@@ -1,28 +1,26 @@
-import React, { useEffect } from 'react'
-import {useNavigate} from 'react-router-dom'
+
 import serialize from 'form-serialize'
 
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 
 const AddMovie = (props) => {
- 
+    let navigate = useNavigate();
    const handleformSubmit = (e) =>
    {
-   
+      
+
        e.preventDefault()
        const newMovie = serialize(e.target
            ,{hash: true});
 
            props.send(newMovie);
+           navigate(`/`);
    };
 
-   useEffect(function(){
-
-    console.log("bbbbbbbbbbb")
-   })
 
 
     

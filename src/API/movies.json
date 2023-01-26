@@ -20,21 +20,6 @@
       "imageURL": "https://m.media-amazon.com/images/I/81anyi8IkDS._RI_.jpg",
       "overview": "Eight years after the Joker's reign of chaos, Batman is coerced out of exile with the assistance of the mysterious Selina Kyle in order to defend Gotham City from the vicious guerrilla terrorist Bane.",
       "id": 3
-    },
-    {
-      "name": "Forrest Gump",
-      "rating": "8.8",
-      "imageURL": "https://upload.wikimedia.org/wikipedia/tr/b/bb/Forrest_Gump_%28film%2C_1994%29.jpg",
-      "overview": "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.",
-      "id": 4
-    },
-    {
-      "name": "Eternal Sunshine of the Spotless Mind",
-      "rating": "8.3",
-      "imageURL": "https://m.media-amazon.com/images/I/51J8XQhuITL._AC_SY580_.jpg",
-      "overview": "When their relationship turns sour, a couple undergoes a medical procedure to have each other erased from their memories for ever.",
-      "id": 5
     }
-   
   ]
 }
